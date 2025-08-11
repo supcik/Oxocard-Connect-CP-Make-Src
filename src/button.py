@@ -1,4 +1,5 @@
 # LED control with button press using CircuitPython
+# J. Supcik, august 2025
 
 import board
 import digitalio
