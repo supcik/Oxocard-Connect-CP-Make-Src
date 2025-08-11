@@ -1,5 +1,5 @@
+# https://github.com/supcik/Oxocard-Connect-CP-Make-Src/blob/main/src/button.py
 # LED control with button press using CircuitPython
-# J. Supcik, August 2025
 
 import board
 import digitalio

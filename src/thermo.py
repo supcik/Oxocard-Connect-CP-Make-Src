@@ -1,5 +1,5 @@
+# https://github.com/supcik/Oxocard-Connect-CP-Make-Src/blob/main/src/thermo.py
 # Get the temperature from a thermistor and send it to Adafruit IO
-# J. Supcik, August 2025
 
 import math
 import time

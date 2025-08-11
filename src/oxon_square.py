@@ -1,5 +1,5 @@
+# https://github.com/supcik/Oxocard-Connect-CP-Make-Src/blob/main/src/oxon_square.py
 # Fills the display with random squares and blends them with the OXOCARD logo colors.
-# J. Supcik, August 2025
 
 import random
 

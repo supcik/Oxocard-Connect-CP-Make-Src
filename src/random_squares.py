@@ -1,4 +1,5 @@
-# Fills the display with random squares. / J. Supcik, August 2025
+# https://github.com/supcik/Oxocard-Connect-CP-Make-Src/blob/main/src/random_squares.py
+# Fills the display with random squares.
 
 import random
 

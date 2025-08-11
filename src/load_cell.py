@@ -1,4 +1,5 @@
-# Simple Scale project with a Scale class / J. Supcik, August 2025
+# https://github.com/supcik/Oxocard-Connect-CP-Make-Src/blob/main/src/load_cell.py
+# Simple Scale project with a Scale class
 
 import time
 from struct import pack, unpack

@@ -1,5 +1,5 @@
-# LED control with PWM / J. Supcik, August 2025
-
+# https://github.com/supcik/Oxocard-Connect-CP-Make-Src/blob/main/src/dimmer.py
+# LED control with PWM
 
 import board
 import digitalio

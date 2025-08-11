@@ -1,4 +1,5 @@
-# Simple example using Serial Controlled Servo / J. Supcik, August 2025
+# https://github.com/supcik/Oxocard-Connect-CP-Make-Src/blob/main/src/servo.py
+# Simple example using Serial Controlled Servo
 
 import time
 

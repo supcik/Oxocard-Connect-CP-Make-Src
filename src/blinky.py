@@ -1,4 +1,5 @@
-# Blinky with Oxocard Connect and CircuitPython / J. Supcik, August 2025
+# https://github.com/supcik/Oxocard-Connect-CP-Make-Src/blob/main/src/blinky.py
+# Blinky with Oxocard Connect and CircuitPython
 
 import time
 
