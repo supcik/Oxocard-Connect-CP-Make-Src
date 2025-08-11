@@ -1,5 +1,5 @@
 # Get the temperature from a thermistor and send it to Adafruit IO
-# J. Supcik, august 2025
+# J. Supcik, August 2025
 
 import math
 import time

@@ -1,4 +1,4 @@
-# Simple example using Serial Controlled Servo / J. Supcik, august 2025
+# Simple example using Serial Controlled Servo / J. Supcik, August 2025
 
 import time
 
