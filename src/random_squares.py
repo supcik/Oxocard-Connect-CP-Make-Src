@@ -11,7 +11,7 @@ splash = displayio.Group()
 board.DISPLAY.auto_refresh = False
 board.DISPLAY.root_group = splash
 
-SQUARE_SIZE = const(40)
+SQUARE_SIZE = const(20)
 
 
 def main():
