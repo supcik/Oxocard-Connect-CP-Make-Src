@@ -1,4 +1,4 @@
-# Blinky with Oxocard Connect and CircuitPython / J. Supcik, august 2025
+# Blinky with Oxocard Connect and CircuitPython / J. Supcik, August 2025
 
 import time
 
