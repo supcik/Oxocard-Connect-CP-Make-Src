@@ -7,15 +7,16 @@ import board
 import displayio
 from adafruit_display_shapes.rect import Rect
 
-splash = displayio.Group()
-board.DISPLAY.auto_refresh = False
-board.DISPLAY.root_group = splash
-
 SQUARE_SIZE = const(20)
 
 
 def main():
     display = board.DISPLAY
+    display.auto_refresh = False
+
+    root_group = displayio.Group()
+    display.root_group = root_group
+
     ROWS = display.height // SQUARE_SIZE
     COLUMNS = display.width // SQUARE_SIZE
 
@@ -37,7 +38,7 @@ def main():
     # Add the squares to the display
     for r in range(ROWS):
         for c in range(COLUMNS):
-            splash.append(grid[r][c])
+            root_group.append(grid[r][c])
 
     # Randomly fill squares with colors
     while True:

@@ -7,10 +7,6 @@ import board
 import displayio
 from adafruit_display_shapes.rect import Rect
 
-splash = displayio.Group()
-board.DISPLAY.auto_refresh = False
-board.DISPLAY.root_group = splash
-
 SQUARE_SIZE = const(20)
 CONVERGENCE_STEPS = const(2000)
 CONVERGENCE_OVERFLOW = 1.2
@@ -54,6 +50,11 @@ def blend(c1, c2, f):
 
 def main():
     display = board.DISPLAY
+
+    root_group = displayio.Group()
+    display.auto_refresh = False
+    display.root_group = root_group
+
     # Calculate the number of rows and columns based on the display size
     ROWS = display.height // SQUARE_SIZE
     COLUMNS = display.width // SQUARE_SIZE
@@ -80,7 +81,7 @@ def main():
     # Add the squares to the display
     for random_row in range(ROWS):
         for random_column in range(COLUMNS):
-            splash.append(grid[random_row][random_column])
+            root_group.append(grid[random_row][random_column])
 
     # Randomly fill squares with colors
     index = 0
