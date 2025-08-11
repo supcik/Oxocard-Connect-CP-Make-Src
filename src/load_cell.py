@@ -1,4 +1,4 @@
-# Simple Scale project with a Scale class
+# Simple Scale project with a Scale class / J. Supcik, August 2025
 
 import time
 from struct import pack, unpack
@@ -14,7 +14,12 @@ CLOCK_PIN: Pin = board.IO02
 
 class Measure:
 
-    def __init__(self, raw_value: int, tare: int = 0, calibration_factor: float = 1.0):
+    def __init__(
+        self,
+        raw_value: int,
+        tare: int = 0,
+        calibration_factor: float = 1.0,
+    ):
         self._raw_value = raw_value
         self._tare = tare
         self._calibration_factor = calibration_factor
@@ -77,7 +82,9 @@ def main():
     scale.calibrate(1000, 418480)
     while True:
         m = scale.measure()
-        print(f"raw: {m.raw_value}, value: {m.value}, Weight: {m.weight:.0f} g")
+        print(
+            f"raw: {m.raw_value}, value: {m.value}, Weight: {m.weight:.0f} g"
+        )
         time.sleep(1)
 
 

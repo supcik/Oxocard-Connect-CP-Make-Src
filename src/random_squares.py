@@ -1,3 +1,6 @@
+# Fills the display with random squares. Blends them with OxoCard logo colors.
+# J. Supcik, August 2025
+
 import random
 
 import board

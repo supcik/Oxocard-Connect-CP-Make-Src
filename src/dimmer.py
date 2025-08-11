@@ -1,4 +1,4 @@
-# LED control with PWM
+# LED control with PWM / J. Supcik, August 2025
 
 
 import board
@@ -13,7 +13,9 @@ BUTTON_PIN = board.BTN5
 
 def main():
     index: int = 0
-    led = led = pwmio.PWMOut(LED_PIN, frequency=50000, duty_cycle=DUTY_CYCLES[index])
+    led = led = pwmio.PWMOut(
+        LED_PIN, frequency=50000, duty_cycle=DUTY_CYCLES[index]
+    )
     btn = digitalio.DigitalInOut(BUTTON_PIN)
     btn.direction = digitalio.Direction.INPUT
     btn.pull = None  # The Oxocard already provides a pulldown

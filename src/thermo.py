@@ -1,4 +1,5 @@
 # Get the temperature from a thermistor and send it to Adafruit IO
+# J. Supcik, august 2025
 
 import math
 import time
@@ -38,7 +39,10 @@ class Thermometer:
         vr = self._voltage(samples)
         vntc = self.VCC - vr
         rntc = vntc * self.RESISTOR_1 / vr
-        tk = 1.0 / (1.0 / self._t0 + (1 / self._beta) * math.log(rntc / self._r0))
+        tk = 1.0 / (
+            1.0 / self._t0
+            + (1 / self._beta) * math.log(rntc / self._r0)
+        )
         return tk - self.KELVIN_OFFSET
 
 
@@ -49,10 +53,14 @@ def main():
     aio_feed_name = getenv("AIO_FEED_NAME")
 
     if not aio_feed_name:
-        raise ValueError("AIO_FEED_NAME environment variable is not set")
+        raise ValueError(
+            "AIO_FEED_NAME environment variable is not set"
+        )
 
     pool = adafruit_connection_manager.get_radio_socketpool(wifi.radio)
-    ssl_context = adafruit_connection_manager.get_radio_ssl_context(wifi.radio)
+    ssl_context = adafruit_connection_manager.get_radio_ssl_context(
+        wifi.radio
+    )
     requests = adafruit_requests.Session(pool, ssl_context)
 
     io = IO_HTTP(aio_username, aio_key, requests=requests)

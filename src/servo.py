@@ -1,4 +1,4 @@
-# Simple example using Serial Controlled Servo
+# Simple example using Serial Controlled Servo / J. Supcik, august 2025
 
 import time
 
@@ -14,7 +14,9 @@ def main() -> None:
     servo = SerialControlledServo(tx_pin=board.IO02, rx_pin=board.IO01)
     index: int = 0
     while True:
-        servo.set_position(servo_id=1, pos=POSITIONS[index], speed=SPEED)
+        servo.set_position(
+            servo_id=1, pos=POSITIONS[index], speed=SPEED
+        )
         index = (index + 1) % len(POSITIONS)
         while servo.is_moving(servo_id=1):
             time.sleep(0.1)

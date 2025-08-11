@@ -1,4 +1,5 @@
 # Fills the display with random squares and blends them with the OXOCARD logo colors.
+# J. Supcik, August 2025
 
 import random
 
@@ -90,7 +91,11 @@ def main():
         logo_color = OXOCARD_LOGO[random_row // LOGO_SQ_ROWS][
             random_column // LOGO_SQ_COLS
         ]
-        color = blend(logo_color, random_color, min(index / CONVERGENCE_STEPS, 1.0))
+        color = blend(
+            logo_color,
+            random_color,
+            min(index / CONVERGENCE_STEPS, 1.0),
+        )
         grid[random_row][random_column].fill = color
         board.DISPLAY.refresh()
         index += direction
