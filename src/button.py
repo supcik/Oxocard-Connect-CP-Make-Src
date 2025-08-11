@@ -10,9 +10,11 @@ BUTTON_PIN = board.BTN5  # The middle button
 
 
 def main():
+    # Configure the LED
     led = digitalio.DigitalInOut(LED_PIN)
     led.switch_to_output(True)
 
+    # Configure the button
     btn = digitalio.DigitalInOut(BUTTON_PIN)
     btn.direction = digitalio.Direction.INPUT
     btn.pull = None  # The Oxocard already provides a pulldown

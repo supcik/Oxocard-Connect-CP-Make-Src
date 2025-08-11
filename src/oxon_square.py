@@ -53,9 +53,10 @@ def blend(c1, c2, f):
 
 
 def main():
+    display = board.DISPLAY
     # Calculate the number of rows and columns based on the display size
-    ROWS = board.DISPLAY.height // SQUARE_SIZE
-    COLUMNS = board.DISPLAY.width // SQUARE_SIZE
+    ROWS = display.height // SQUARE_SIZE
+    COLUMNS = display.width // SQUARE_SIZE
 
     # Calculate logo square size based on the number of rows and columns
     LOGO_SQ_ROWS = ROWS // len(OXOCARD_LOGO)
@@ -85,19 +86,23 @@ def main():
     index = 0
     direction = 1
     while True:
+        # get a random square
         random_column = random.randrange(ROWS)
         random_row = random.randrange(COLUMNS)
+        # ... and a random color
         random_color = random.getrandbits(24)
         logo_color = OXOCARD_LOGO[random_row // LOGO_SQ_ROWS][
             random_column // LOGO_SQ_COLS
         ]
+        # Blend the logo color with the random color
         color = blend(
             logo_color,
             random_color,
             min(index / CONVERGENCE_STEPS, 1.0),
         )
+        # Set the color of the random square
         grid[random_row][random_column].fill = color
-        board.DISPLAY.refresh()
+        display.refresh()
         index += direction
         if index > CONVERGENCE_STEPS * CONVERGENCE_OVERFLOW:
             direction = -1

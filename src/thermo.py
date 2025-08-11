@@ -12,7 +12,6 @@ import wifi
 from adafruit_io.adafruit_io import IO_HTTP
 from analogio import AnalogIn
 from microcontroller import Pin
-from micropython import const
 
 DELAY_S = const(5)
 
@@ -30,6 +29,10 @@ class Thermometer:
         self._analog_in = AnalogIn(pin)
 
     def _voltage(self, samples) -> float:
+        """
+        Read the voltage from the analog pin `samples` times and return
+        the average value.
+        """
         sum = 0
         for _ in range(samples):
             sum += (self._analog_in.value * self.VCC) / 65536
@@ -47,7 +50,9 @@ class Thermometer:
 
 
 def main():
+    # Initialize the thermometer
     thermo = Thermometer(board.IN06)
+    # Set up Adafruit IO
     aio_username = getenv("AIO_USERNAME")
     aio_key = getenv("AIO_KEY")
     aio_feed_name = getenv("AIO_FEED_NAME")
@@ -57,16 +62,20 @@ def main():
             "AIO_FEED_NAME environment variable is not set"
         )
 
+    # Set up the Wi-Fi connection
     pool = adafruit_connection_manager.get_radio_socketpool(wifi.radio)
     ssl_context = adafruit_connection_manager.get_radio_ssl_context(
         wifi.radio
     )
     requests = adafruit_requests.Session(pool, ssl_context)
 
+    # Initialize Adafruit IO HTTP client
     io = IO_HTTP(aio_username, aio_key, requests=requests)
+
     while True:
         temp = thermo.temperature()
         print(f"Temperature : {temp:.1f} °C")
+        # Send the temperature to Adafruit IO
         io.send_data(aio_feed_name, str(temp))
         time.sleep(DELAY_S)
 

@@ -15,8 +15,9 @@ SQUARE_SIZE = const(40)
 
 
 def main():
-    ROWS = board.DISPLAY.height // SQUARE_SIZE
-    COLUMNS = board.DISPLAY.width // SQUARE_SIZE
+    display = board.DISPLAY
+    ROWS = display.height // SQUARE_SIZE
+    COLUMNS = display.width // SQUARE_SIZE
 
     # Build a grid of squares
     grid = [
@@ -44,7 +45,7 @@ def main():
         r = random.randrange(COLUMNS)
         fill = random.getrandbits(24)
         grid[r][c].fill = fill
-        board.DISPLAY.refresh()
+        display.refresh()
 
 
 main()
